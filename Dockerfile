@@ -39,13 +39,13 @@ COPY --chown=appuser:appuser . .
 USER appuser
 
 # Ensure run.sh is executable
-# RUN chmod +x run.sh
+RUN chmod +x run.sh
 
-# EXPOSE 8000
-
-# CMD ["./run.sh"]
 EXPOSE 8000
+
+CMD ["./run.sh"]
+
 
 # HEALTHCHECK CMD curl --fail http://localhost:8000/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "A_Information.py", "--server.port=8000", "--server.address=0.0.0.0"]
+# ENTRYPOINT ["streamlit", "run", "A_Information.py", "--server.port=8000", "--server.address=0.0.0.0"]
